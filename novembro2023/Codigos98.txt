@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	setlocale(LC_ALL, "");
+	
+	int idade, opiniao, numeropessoas, npessoasinsat, npessoassat;
+	float somaidade, media;
+	numeropessoas = 0;
+	npessoasinsat = 0;
+	npessoassat = 0;
+	somaidade = 0;
+	printf("Informe sua idade: ");
+	scanf("%d", &idade);
+	
+	while(idade != 0)
+	{
+		do
+		{
+			
+			printf("Informe a opinião: \n1.:Satisfeito\n2.:Indiferente\n3.:Insatisfeiro\n");
+			scanf("%d", &opiniao);
+		}
+			while ((opiniao !=1)  && (opiniao !=2) && (opiniao !=3)); // se digitar diferente de 1, 2 e 3 repete printf
+			numeropessoas++ ; 		
+			
+			if (opiniao == 1)
+			{
+				somaidade = somaidade + idade;
+				npessoassat++;
+			
+			}
+			else
+			{
+				if (opiniao == 3)
+				npessoasinsat++;
+				
+			}
+			printf("Informe sua idade: ");
+			scanf("%d", &idade);
+				
+	}
+			media = (somaidade/npessoassat);
+			printf("O numero de pessoas insatisfeitas é: %d\n", npessoasinsat);
+			printf("O numero de pessoas satisfeitas é: %d\n", npessoassat);
+			printf("A média de idade das pessoas satisfeitas é: %.2f\n", media);
+			
+			
+	return 0;
+}
