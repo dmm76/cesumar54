@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	setlocale(LC_ALL, "");
+	
+	int vetorA[30], vetorB[30], vetorC[30];
+	int i, j, troca;
+	
+	for (i=0; i<5; i++)
+	{
+		
+		printf("Digite o valor %d do Vetor A: ", i);
+		scanf("%d", &vetorA[i]);	
+		printf("Digite o valor %d do Vetor B: ",i);
+		scanf("%d", &vetorB[i]);
+		vetorC[i] = vetorA[i] + vetorB[i];	
+	}
+	for (i=0; i<4; i++)
+	{
+		for (j=i+1; j<5; j++)
+		{
+			if (vetorC[i] > vetorC[j])
+			{
+				troca = vetorC[i];
+				vetorC[i] = vetorC[j];
+				vetorC[j] = troca;
+			}
+		}
+	}
+	for (i=0; i<5; i++)
+	{
+		printf("%d - ",vetorC[i]);
+	}
+	return 0;
+}
