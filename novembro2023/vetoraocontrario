@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "");
+	
+	char palavra[30];
+	int tam, i;
+	
+	printf("Digite uma palavra: ");
+	gets(palavra);
+	
+	tam = strlen(palavra);
+	
+	for(i=tam-1; i>=0; i--)
+	
+		printf("%c", palavra[i]);
+	
+	return 0;
+}
