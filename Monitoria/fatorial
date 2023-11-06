@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	setlocale (LC_ALL, "");
+	
+	int num, fatorial, i;
+	
+	printf("Digite um numero inteiro positivo: ");
+	scanf("%d", &num);
+	
+	while (num <= 0)
+	{
+		printf("Digite um numero válido\n");
+		printf("Digite um numero inteiro positivo: ");
+		scanf("%d", &num);
+	}
+	
+		fatorial =1;
+		for(i=1; i<=num; i++)
+		fatorial = fatorial * i;
+		printf("O fatorial de %d é: %d", num, fatorial);
+	
+	return 0;
+}
