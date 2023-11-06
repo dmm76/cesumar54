@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	setlocale(LC_ALL, "");
+	
+	float area, perimetro, raio;
+	
+	printf("Informe o valor do raio: ");
+	scanf("%f", &raio);
+	
+	area = M_PI * (raio * raio);
+	perimetro = 2 * M_PI * raio;
+	
+	printf("O valor do perimentor é : %.2f\nO valor da area do circulo é : %.2f\n", perimetro, area);
+	return 0;
+}
