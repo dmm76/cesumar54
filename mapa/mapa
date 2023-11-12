@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#define TAM 20 
+
+struct cadCli //estrutura do cadastro
+{
+	int tipo_atendimento;
+	char nome[50];
+	char cpf[20];
+};
+
+int setor(set)
+{
+	int nset, ac, cx, gpf, gpj;
+	printf("QUAL SETOR DE ATENDIMENTO QUE GOSTARIA DE ESCOLHER ?\n1 - ABERTURA DE CONTA\n2 - CAIXA\n3 - GERENTE PESSOA FISICA\n4 - GERENTE PESSOA JURIDICA\n");
+	scanf("%d", &nset);
+	if (nset == 1)
+	{	
+		ac++;		
+		printf("!!Registro de Abertura de Conta concluido com sucesso !!\n");	
+		system("pause");
+		system("cls");
+	}
+	 if (nset == 2)
+	{	
+		cx++;
+		printf("!!Registro de Pedido de Atendimento no Caixa !!\n");
+		system("pause");
+		system("cls");	
+	}
+	if (nset == 3)
+	{	
+		gpf++;
+		printf("!!Registro de Pedido de Atendimento !!!\n");
+		printf(" Gerente Pessoa Fisica - Aguardando \n");	
+		system("pause");
+		system("cls");
+	}
+	if (nset == 4)
+	{	
+		gpj++;
+		printf("!!Registro de Pedido de Atendimento !!!\n");
+		printf(" Gerente Pessoa Jurídica - Aguardando\n");
+		system("pause");
+		system("cls");	
+	}
+}
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "");
+int i, opt;	
+int chamasetor, numsetor; //chama a sub-rotina - solicitar atendimento
+struct cadCli clientes[TAM];
+
+//clientes[1].tipo_atendimento = "1 - Abertura de Conta";
+// lientes[2].tipo_atendimento = "2 - Caixa";
+//clientes[3].tipo_atendimento = "3 - GPF";
+//clientes[4].tipo_atendimento = "4 - GPJ";
+
+		opcao:
+		printf("!! Seja bem vindo %s ao sistema de atendimento !!\n\n", clientes[i].nome );
+		printf("Por favor escolha entre as opçoes de atendimento\n\n1 - Solicitar Atendimento\n2 - Listar atendimentos registrados\n3 - Listar atendimentos por setor\n4 - Sair\n");
+		scanf("%d", &opt);
+		fflush(stdin);
+		system("cls");
+		
+		
+		switch (opt)
+		{
+				
+		case 1:
+				printf("Digite seu nome: ");
+				scanf("%s", &clientes[i].nome);
+				fflush(stdin);
+				printf("Digite seu cpf: ");
+				scanf("%s", &clientes[i].cpf);
+				fflush(stdin);
+				system("cls");
+				printf("!! CADASTRO COM SUCESSO !!\n");
+				printf("Escolha seu atendimento: \n1-Abertura\n2-Caixa\n3-Gerente PF\n4-Gerente PJ\n");
+				scanf("%d", &clientes[i].tipo_atendimento);
+				fflush(stdin);
+				system("cls");	
+				goto opcao;
+				//chamasetor = setor();
+				//chamasetor = clientes[i].tipo_atendimento;
+				break;
+		case 2:
+				printf("!! Listar Atendimentos Registrados !!\n");
+				printf("Nome: %s\nCPF: %s\nTipo de Atendimento - ", clientes[i].nome, clientes[i].cpf);
+				if (clientes[i].tipo_atendimento == 1){
+				printf("%d - ABERTURA DE CONTA \n", clientes[i].tipo_atendimento);	
+				}
+				if (clientes[i].tipo_atendimento == 2){
+				printf("%d - Listar atendimentos \n", clientes[i].tipo_atendimento);	
+				}
+				if (clientes[i].tipo_atendimento == 3){
+				printf("%d - Gerente Pessoa Fisica \n", clientes[i].tipo_atendimento);	
+				}
+				if (clientes[i].tipo_atendimento == 4){
+				printf("%d - Gerente Pessoa Jurídica \n",clientes[i].tipo_atendimento);	
+				}
+				//printf("Nome: %s\nCPF: %s\nTipo de Atendimento - ", clientes[i].nome, clientes[i].cpf);			
+				system("pause");
+				system("cls");
+				goto opcao;
+				break;
+		case 3:
+				printf("!! Listar Atendimentos por Setor !!\n");
+				system("pause");
+				system("cls");
+				goto opcao;
+				break;
+		case 4:
+				printf("!! Obrigado por usar nossos serviços !!\n          !!Saindo do Sistema!!\n");
+				system("pause");
+				system("cls");
+				i = i+ 1;	
+				goto opcao;
+				break;
+		defaut:
+				printf("!! Opção Inválida !!\n");
+				system("pause");
+				system("cls");	
+				goto opcao;
+				break;
+		}
+
+
+
+	return 0;
+}
